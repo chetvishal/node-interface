@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import './Node.css'
 
-const Node = ({ initialText }) => {
+const Node = ({ initialText, id, removeNode }) => {
 
     let z = 1;
 
@@ -33,8 +33,11 @@ const Node = ({ initialText }) => {
 
     return (
         <div onMouseDown={handleMouseDown} onMouseUp={handleMouseUp} ref={nodeRef} className="node">
-            <h3 contentEditable>{title}</h3>
-            <div contentEditable style={{height: "30px", width: "70px"}}></div>
+            <span onClick={() => {
+                console.log("hi")
+                removeNode(id)}}>x</span>
+            <h3 contentEditable suppressContentEditableWarning={true}>{title}</h3>
+            <div contentEditable style={{height: "30px", width: "70px", background: "white", margin: "0 auto"}}></div>
         </div>
     )
 }

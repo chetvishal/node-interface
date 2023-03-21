@@ -10,7 +10,12 @@ const NodeInterface = () => {
     const [initialText, setInitialText] = useState("")
 
     const addNode = () => {
-        setNodeList(list => ([...list, initialText]))
+        setNodeList(list => ([...list, {initialText, id: Math.round((Math.random() * 10000000))}]))
+    }
+
+    const removeNode = (id) => {
+        const tempList = nodeList.filter(item => item.id != id);
+        setNodeList(() => tempList)
     }
 
     return(
@@ -18,13 +23,18 @@ const NodeInterface = () => {
             <svg class="global_canvas"></svg>
             {
                 nodeList.map(item => (
-                    <Node initialText={item}/>
+                    <Node 
+                        initialText={item.initialText} 
+                        id={item.id} 
+                        removeNode={removeNode}
+                        suppressContentEditableWarning={true}
+                        />
                 ))
             }
             <button onClick={() => {
                 addNode()
-            }}>clicke me</button>
-            <input type="text" onChange={(e) => setInitialText(e.target.value)}/>
+            }}>add node</button>
+            <input placeholder="Add Title..." type="text" onChange={(e) => setInitialText(e.target.value)}/>
         </div>
     )
 }
