@@ -1,0 +1,21 @@
+.node {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    top: 100px;
+    cursor: move;
+    background-color: lightcoral;
+
+  }
+
+  .selector{
+    width:15px;
+    display:block;
+    height:15px;
+    border-radius:20px;
+    background:rgba(65,255,65,1);
+    position:absolute;
+    margin:0;
+    cursor:pointer;
+  }

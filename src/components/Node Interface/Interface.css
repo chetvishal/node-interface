@@ -1,0 +1,7 @@
+.node_interface_container {
+  background: linear-gradient(90deg, #ffffff 19px, transparent 1%) center,
+    linear-gradient(#ffffff 19px, transparent 1%) center, #f0f0f0;
+  background-size: 22px 22px;
+  height: 100vh;
+  width: 100vw;
+}
